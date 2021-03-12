@@ -7,7 +7,8 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/java/features/buscador.feature",
-        glue = "stepdefinitions"
+        glue = "stepdefinitions",
+        plugin = { "com.cucumber.listener.ExtentCucumberFormatter:reporte-cucumber/reportBuscador.html"}
 
 )
 public class TestRunnerBuscador {

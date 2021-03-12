@@ -8,7 +8,8 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/java/features/autenticar.feature",
-        glue = {"stepdefinitions"}
+        glue = {"stepdefinitions"},
+        plugin = { "com.cucumber.listener.ExtentCucumberFormatter:reporte-cucumber/report.html"}
 )
 public class TestRunner {
 }

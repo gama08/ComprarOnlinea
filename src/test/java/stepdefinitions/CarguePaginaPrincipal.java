@@ -1,7 +1,10 @@
 package stepdefinitions;
 
+import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import runner.browser.DriverManager;
 import runner.browser.DriverManagerFactory;
@@ -20,7 +23,17 @@ public class CarguePaginaPrincipal {
         //remoteWebDriver.manage().window().maximize();
     }
     @After
-    public void terminarProceso(){
+    public void terminarProceso(Scenario scenario){
+        if (scenario.isFailed()){
+            try {
+               final byte[] screenshot = ((TakesScreenshot)remoteWebDriver).getScreenshotAs(OutputType.BYTES);
+                scenario.embed(screenshot, "imagen/png");
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+        }
+
         driverManager.cerrarDriver();
     }
 

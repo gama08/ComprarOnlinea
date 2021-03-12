@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/java/features/navegar.feature",
         glue = "stepdefinitions",
+        plugin = { "com.cucumber.listener.ExtentCucumberFormatter:reporte-cucumber/reportCamisas.html"},
         tags = "@camisas"
 )
 public class TestRunnerCamisas {
