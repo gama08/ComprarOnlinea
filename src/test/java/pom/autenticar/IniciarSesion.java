@@ -43,6 +43,5 @@ public class IniciarSesion extends FuncionesSelenium {
     public void validarUsuarioPantallaMiCuenta() throws Exception{
         tiempoEmperaElementoVisible(tituloMiCuenta, TIEMPO_ESPERA);
         comprarSiExisteTitulo("MY ACCOUNT", getText(tituloMiCuenta));
-        tiempoEspera(5000);
     }
 }
