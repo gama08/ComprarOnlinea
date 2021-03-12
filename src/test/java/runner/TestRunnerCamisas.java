@@ -10,5 +10,5 @@ import org.junit.runner.RunWith;
         glue = "stepdefinitions",
         tags = "@camisas"
 )
-public class TestRunnerCamisetas {
+public class TestRunnerCamisas {
 }

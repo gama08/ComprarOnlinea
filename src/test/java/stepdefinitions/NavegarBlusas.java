@@ -1,23 +1,35 @@
 package stepdefinitions;
 
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pom.testBase.TestPaginaPrincipal;
 
-public class NavegarBlusas {
+public class NavegarBlusas extends TestPaginaPrincipal {
 
-    @When("^el usuario mueve el cursor del mause al menú de mujer$")
-    public void el_usuario_mueve_el_cursor_del_mause_al_menú_de_mujer() {
+    private final String URL = "http://automationpractice.com/index.php";
+
+    @Given("^el usuario se encuentre en la pagina principal$")
+    public void mostrarPantallaPrincipal(){
+        camisetas.cargarPaginaPrincipal(URL);
 
     }
 
+    @When("^el usuario mueve el cursor del mause al menú de mujer$")
+    public void ingresarMenuBlusas(){
+        camisetas.navegarPaginaBlusas();
+    }
+
     @When("^da clic en la opción de blusas$")
-    public void da_clic_en_la_opción_de_blusas(){
+    public void confirmarIngresoPantallaBlusas(){
+        camisetas.seleccionarOpcionBlusas();
 
     }
 
     @Then("^el aplicativo muestra la pagina de blusas$")
-    public void el_aplicativo_muestra_la_pagina_de_blusas() {
-
+    public void el_aplicativo_muestra_la_pagina_de_blusas() throws Exception {
+        camisetas.confirmarIngresoPantallaBlusas();
     }
+
 
 }
